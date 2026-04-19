@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script type="module" crossorigin src="/portfolio/assets/index-BjasCpZi.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-7YPnjHXs.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/javascript">
+      const fullText = " Kushal Panthi";
+      let index = 0;
+      let isDeleting = false;
+
+      function typeEffect() {
+        // Determine how much of the string to show
+        const currentText = fullText.substring(0, index);
+        document.title = currentText + (isDeleting ? "" : "_"); // Adds a cursor feel
+
+        if (!isDeleting && index < fullText.length) {
+          // Typing forward
+          index++;
+          setTimeout(typeEffect, 150);
+        } else if (isDeleting && index > 0) {
+          // Deleting backward
+          index--;
+          setTimeout(typeEffect, 100);
+        } else {
+          // Switch modes and pause at the ends
+          isDeleting = !isDeleting;
+          setTimeout(typeEffect, 100);
+        }
+      }
+
+      window.onload = typeEffect;
+    </script>
+  </body>
+</html>
