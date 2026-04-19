@@ -1,0 +1,159 @@
+/* ── KP Logo Button ── */
+.infocard__kp-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.infocard__kp-logo:hover {
+  background: #ffffff;
+  color: #0a0a0a;
+  transform: scale(1.08);
+}
+
+.infocard__kp-logo--active {
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+/* ── Balloons container ── */
+.infocard__balloons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  max-width: 520px;
+}
+
+/* ── Pop-in animation ── */
+@keyframes balloonPop {
+  0%   { opacity: 0; transform: scale(0.3) translateY(12px); }
+  65%  { transform: scale(1.15) translateY(-4px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ── Each balloon ── */
+.infocard__balloon {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: #0a0a0a;
+  background: #ffffff;
+  border: none;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  opacity: 0;
+  animation: balloonPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.infocard__balloon:hover {
+  background: #ff4d4d;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+/* ── Back hint text ── */
+.infocard__back-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: #444;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+/* ── Mobile ── */
+@media (max-width: 720px) {
+  .infocard-wrapper {
+    width: calc(100vw - 2rem);
+    height: auto;
+    min-height: 320px;
+  }
+
+  .infocard {
+    padding: 1.5rem;
+  }
+
+  .infocard--front {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .infocard__vdivider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .infocard__left {
+    flex-direction: row;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 540px) {
+  .infocard-wrapper {
+    height: auto;
+    min-height: 280px;
+  }
+
+  .infocard--front {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .infocard__vdivider {
+    width: 80%;
+    height: 1px;  /* horizontal divider on mobile */
+  }
+
+  .infocard__left {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .infocard__right {
+    width: 100%;
+  }
+
+  .infocard__name {
+    font-size: 1.2rem;
+    white-space: normal;
+  }
+
+  .infocard__title {
+    font-size: 0.7rem;
+    white-space: normal;
+  }
+
+  .infocard__contact-row {
+    font-size: 0.7rem;
+    white-space: normal;
+  }
+
+  .infocard__accent {
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .infocard__hint--front {
+    display: none;
+  }
+}
